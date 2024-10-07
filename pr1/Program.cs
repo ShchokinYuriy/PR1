@@ -213,6 +213,7 @@ namespace pr1
                 task.Execute();
                 Console.WriteLine(); // Для розділення виводу
             }
+
         }
     }
 }
