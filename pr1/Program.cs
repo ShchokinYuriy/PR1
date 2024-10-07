@@ -189,7 +189,34 @@ namespace pr1
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
      
+=======
+            // Ініціалізація завдань
+            int[] arr1 = new int[46];
+            int n = 20;
+
+            var numbersTask = new NumbersOfDiapasone(arr1, n);
+            var triangleTask = new Tringle(new int[] { 3, 4, 5 });
+            var bigArrayTask = new BigArray(arr1);
+            var arrayFilterTask = new ArrayFilter(arr1, 10);
+
+            // Список для зберігання завдань
+            List<ITask> tasks = new List<ITask>
+            {
+                numbersTask,
+                triangleTask,
+                bigArrayTask,
+                arrayFilterTask
+            };
+
+            // Виконання всіх завдань
+            foreach (var task in tasks)
+            {
+                task.Execute();
+                Console.WriteLine(); // Для розділення виводу
+            }
+>>>>>>> mainSolution
         }
     }
 }
