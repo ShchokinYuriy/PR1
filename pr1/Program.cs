@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace pr1
 {
-    class NumbersOfDiapasone{
+    interface ITask
+    {
+        void Execute();
+    }
+
+    class NumbersOfDiapasone : ITask
+    {
         private int[] arr;
         private int n;
         private Random random = new Random();
@@ -16,7 +22,6 @@ namespace pr1
             this.arr = arr;
             this.n = n;
         }
-
 
         public void RandomArr()
         {
@@ -30,93 +35,93 @@ namespace pr1
         {
             foreach (int value in arr)
             {
-                if (value > 0 && value < n)
-                {
-                    Console.WriteLine(value + "true");
-                }
-                else
-                {
-                    Console.WriteLine(value + "False");
-                }
+                Console.WriteLine(value + (value > 0 && value < n ? " true" : " false"));
             }
         }
-    }
-    class Tringle
-    {
-        private int[] arr;//private array
 
-        public Tringle(int[] arr)//class constructor
+        // Реалізація методу Execute з інтерфейсу
+        public void Execute()
+        {
+            RandomArr();
+            CheckDiapasone();
+        }
+    }
+
+    class Tringle : ITask
+    {
+        private int[] arr;
+
+        public Tringle(int[] arr)
         {
             this.arr = arr;
-
-
         }
 
         public void CheackTringle()
         {
             if (arr[0] + arr[1] > arr[2] && arr[0] + arr[2] > arr[1] && arr[1] + arr[2] > arr[0])
             {
-                Console.WriteLine("Tringle is tringle :)");
+                Console.WriteLine("Tringle is valid :)");
             }
             else
             {
-                Console.WriteLine("Tringle is not tringle :(");
+                Console.WriteLine("Tringle is not valid :(");
             }
         }
-        public void TringleP()//P tringle
+
+        public void TringleP()
         {
             if (arr[0] + arr[1] > arr[2] && arr[0] + arr[2] > arr[1] && arr[1] + arr[2] > arr[0])
             {
-                float P = 0;
-                foreach (int i in arr)
-                {
-                    P += i;
-                }
-                Console.WriteLine("P=" + P);
+                float P = arr.Sum();
+                Console.WriteLine("P = " + P);
             }
             else
             {
-                Console.WriteLine("ERROR!!!ERROR!!!ERROR!!!ERROR!!!ERROR!!!ERROR!!!");
+                Console.WriteLine("ERROR!!! ERROR!!!");
             }
         }
-        public void TringleS()//S tringle
+
+        public void TringleS()
         {
             if (arr[0] + arr[1] > arr[2] && arr[0] + arr[2] > arr[1] && arr[1] + arr[2] > arr[0])
             {
-                float S = 0;
-                foreach (int i in arr)
-                {
-                    S += i;
-                }
-                S /= 2;
+                float S = arr.Sum() / 2;
                 S = (float)Math.Sqrt(S * (S - arr[0]) * (S - arr[1]) * (S - arr[2]));
-                Console.WriteLine("S=" + S);
+                Console.WriteLine("S = " + S);
             }
             else
             {
-                Console.WriteLine("ERROR!!!ERROR!!!ERROR!!!ERROR!!!ERROR!!!ERROR!!!");
+                Console.WriteLine("ERROR!!! ERROR!!!");
             }
+        }
+
+        // Реалізація методу Execute з інтерфейсу
+        public void Execute()
+        {
+            CheackTringle();
+            TringleP();
+            TringleS();
         }
     }
-    class BigArray
+
+    class BigArray : ITask
     {
-        private int[] arr;//private array
+        private int[] arr;
         private Random random = new Random();
 
-        public BigArray(int[] arr)//class constructor
+        public BigArray(int[] arr)
         {
             this.arr = arr;
         }
 
         public void GenerateArray()
         {
-
             for (int i = 0; i < arr.Length; i++)
             {
                 arr[i] = random.Next(0, arr.Length);
-
             }
         }
+
         public void ShowArray()
         {
             foreach (int i in arr)
@@ -124,38 +129,33 @@ namespace pr1
                 Console.WriteLine(i);
             }
         }
+
         public void ShowMin()
         {
-            int min = 100;
-            foreach (int i in arr)
-            {
-                if (i < min)
-                {
-                    min = i;
-                }
-            }
-
-            Console.WriteLine("minimal number = " + min);
+            int min = arr.Min();
+            Console.WriteLine("Minimal number = " + min);
         }
+
         public void ShowMax()
         {
-            int max = 0;
-            foreach (int i in arr)
-            {
-                if (i > max)
-                {
-                    max = i;
-                }
-            }
+            int max = arr.Max();
+            Console.WriteLine("Maximal number = " + max);
+        }
 
-            Console.WriteLine("maximal number = " + max);
+        // Реалізація методу Execute з інтерфейсу
+        public void Execute()
+        {
+            GenerateArray();
+            ShowArray();
+            ShowMin();
+            ShowMax();
         }
     }
 
-    class ArrayFilter{
+    class ArrayFilter : ITask
+    {
         private int[] array;
         private int M;
-
 
         public ArrayFilter(int[] array, int M)
         {
@@ -171,13 +171,18 @@ namespace pr1
         public void DisplayResults()
         {
             Console.WriteLine($"Threshold value M: {M}");
-
             Console.WriteLine("Array X:");
             Console.WriteLine(string.Join(" ", array));
 
             int[] Y = FilterArray();
             Console.WriteLine("Array Y:");
             Console.WriteLine(string.Join(" ", Y));
+        }
+
+        // Реалізація методу Execute з інтерфейсу
+        public void Execute()
+        {
+            DisplayResults();
         }
     }
     internal class Program
