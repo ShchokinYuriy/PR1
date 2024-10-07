@@ -8,7 +8,9 @@ namespace pr1
 {
     class NumbersOfDiapasone{}
 
-    class Tringle{}
+    class Tringle{
+    
+    }
 
     class BigArray{}
 
