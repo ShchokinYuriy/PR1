@@ -11,8 +11,7 @@ namespace pr1
         private int n;
         private Random random = new Random();
 
-<<<<<<< HEAD
-=======
+
     class Tringle{
         private int[] arr;//private array
 
@@ -68,7 +67,7 @@ namespace pr1
             }
         }
     }
->>>>>>> class2
+
 
         public NumbersOfDiapasone(int[] arr, int n)
         {
