@@ -49,6 +49,7 @@ namespace pr1
         {
             this.arr = arr;
 
+
         }
 
         public void CheackTringle()
@@ -150,8 +151,35 @@ namespace pr1
             Console.WriteLine("maximal number = " + max);
         }
     }
-    class ArrayFilter{}
 
+    class ArrayFilter{
+        private int[] array;
+        private int M;
+
+
+        public ArrayFilter(int[] array, int M)
+        {
+            this.array = array;
+            this.M = M;
+        }
+
+        public int[] FilterArray()
+        {
+            return array.Where(x => Math.Abs(x) > M).ToArray();
+        }
+
+        public void DisplayResults()
+        {
+            Console.WriteLine($"Threshold value M: {M}");
+
+            Console.WriteLine("Array X:");
+            Console.WriteLine(string.Join(" ", array));
+
+            int[] Y = FilterArray();
+            Console.WriteLine("Array Y:");
+            Console.WriteLine(string.Join(" ", Y));
+        }
+    }
     internal class Program
     {
         static void Main(string[] args)
