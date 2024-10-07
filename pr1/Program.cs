@@ -189,7 +189,7 @@ namespace pr1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("print");
+     
         }
     }
 }
