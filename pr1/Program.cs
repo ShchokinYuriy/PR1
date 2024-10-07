@@ -189,12 +189,6 @@ namespace pr1
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-     
-=======
-=======
->>>>>>> 9a6319fd2d765b976375fc0d6300fef1a6a99b50
             // Ініціалізація завдань
             int[] arr1 = new int[46];
             int n = 20;
@@ -219,11 +213,6 @@ namespace pr1
                 task.Execute();
                 Console.WriteLine(); // Для розділення виводу
             }
-<<<<<<< HEAD
->>>>>>> mainSolution
-=======
-
->>>>>>> 9a6319fd2d765b976375fc0d6300fef1a6a99b50
         }
     }
 }
