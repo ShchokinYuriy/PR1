@@ -213,10 +213,6 @@ namespace pr1
                 task.Execute();
                 Console.WriteLine(); 
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> 8986bedd1e066b85da961edd1dcadf54d1909a31
         }
     }
 }
