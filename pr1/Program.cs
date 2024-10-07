@@ -45,7 +45,9 @@ namespace pr1
 
     class Tringle{}
 
-    class BigArray{}
+    class BigArray{
+    
+    }
 
     class ArrayFilter{}
 
