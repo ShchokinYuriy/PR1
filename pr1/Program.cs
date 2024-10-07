@@ -41,8 +41,6 @@ namespace pr1
             }
         }
     }
-
-<<<<<<< HEAD
     class Tringle
     {
         private int[] arr;//private array
@@ -99,11 +97,8 @@ namespace pr1
             }
         }
     }
-
-    class BigArray{
-    
-=======
-    class BigArray{
+    class BigArray
+    {
         private int[] arr;//private array
         private Random random = new Random();
 
@@ -154,13 +149,7 @@ namespace pr1
 
             Console.WriteLine("maximal number = " + max);
         }
-
-
-
-
->>>>>>> class3
     }
-
     class ArrayFilter{}
 
     internal class Program
