@@ -11,8 +11,39 @@ namespace pr1
         private int n;
         private Random random = new Random();
 
+        public NumbersOfDiapasone(int[] arr, int n)
+        {
+            this.arr = arr;
+            this.n = n;
+        }
 
-    class Tringle{
+
+        public void RandomArr()
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = random.Next(-100, 100);
+            }
+        }
+
+        public void CheckDiapasone()
+        {
+            foreach (int value in arr)
+            {
+                if (value > 0 && value < n)
+                {
+                    Console.WriteLine(value + "true");
+                }
+                else
+                {
+                    Console.WriteLine(value + "False");
+                }
+            }
+        }
+    }
+
+    class Tringle
+    {
         private int[] arr;//private array
 
         public Tringle(int[] arr)//class constructor
@@ -66,42 +97,6 @@ namespace pr1
                 Console.WriteLine("ERROR!!!ERROR!!!ERROR!!!ERROR!!!ERROR!!!ERROR!!!");
             }
         }
-    }
-
-
-        public NumbersOfDiapasone(int[] arr, int n)
-        {
-            this.arr = arr;
-            this.n = n;
-        }
-
-
-        public void RandomArr()
-        {
-            for (int i = 0; i < arr.Length; i++)
-            {
-                arr[i] = random.Next(-100, 100);
-            }
-        }
-
-        public void CheckDiapasone()
-        {
-            foreach (int value in arr)
-            {
-                if (value > 0 && value < n)
-                {
-                    Console.WriteLine(value + "true");
-                }
-                else
-                {
-                    Console.WriteLine(value + "False");
-                }
-            }
-        }
-    }
-
-    class Tringle{
-    
     }
 
     class BigArray{
